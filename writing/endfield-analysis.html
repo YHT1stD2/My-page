@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>《明日方舟：终末地》战斗系统拆解 · Harry</title>
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="/My-page/css/style.css">
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="../../index.html" class="nav-brand">Harry<span class="dot">.</span></a>
+    <a href="/My-page/index.html" class="nav-brand">Harry<span class="dot">.</span></a>
     <div class="nav-links">
-      <a href="../../index.html">首页</a>
-      <a href="../../writing.html">文字作品</a>
-      <a href="../../games.html">游戏 Demo</a>
-      <a href="../../about.html">关于我</a>
+      <a href="/My-page/index.html">首页</a>
+      <a href="/My-page/writing.html">文字作品</a>
+      <a href="/My-page/games.html">游戏 Demo</a>
+      <a href="/My-page/about.html">关于我</a>
     </div>
   </div>
 </nav>
@@ -28,7 +28,7 @@
       <div class="meta">Harry · 2026</div>
     </header>
 
-    <img src="../../assets/img/endfield/endfield_01.png" alt="终末地战斗系统 Mindmap" class="article-cover">
+    <img src="/My-page/assets/img/endfield/endfield_01.png" alt="终末地战斗系统 Mindmap" class="article-cover">
 
     <div class="article-body">
 
@@ -37,7 +37,7 @@
       <p>在游戏中，玩家以小队为单位进行探索、战斗，将角色编入最多四人的小队并操控其中一名角色进行操作。</p>
 
       <p>本拆解案重点讨论终末地的战斗系统，这个战斗系统有着复杂的多乘区、元素效果、小队作战、特色技能等机制，但是通过对战技点和连携技 CD 的控制进行了极强的策略管理和节奏控制。本案将会通过拆解该战斗系统，剖析其繁杂内容和强管理是如何实现的，会带来什么优劣，以及如何基于这样的战斗系统对战斗体验进行改善。Mindmap 如下：</p>
-      <img src="../../assets/img/endfield/endfield_01.png" alt="终末地战斗系统 Mindmap">
+      <img src="/My-page/assets/img/endfield/endfield_01.png" alt="终末地战斗系统 Mindmap">
       <p class="img-caption">Mindmap：《终末地》战斗系统总览</p>
 
       <h2>1. 战斗系统的整体构成</h2>
@@ -49,7 +49,7 @@
       <h3>1.1 小队系统</h3>
       <p>《终末地》是以最多四人小队作为探索和战斗的单位，玩家在选择角色（干员）编队上场后，其操作的角色为"主控干员"。</p>
       <p>但是与其他实际始终操作和切换单一角色（如《原神》）和其他角色会短暂同时在场（《绝区零》）不同，《终末地》的小队所有成员都是始终在场的，玩家可以直接释放其技能，不操作时小队中角色也会跟随主控干员进行普通攻击、闪避、追击等基础操作，战斗中小队内的其他干员在无法闪避时也会受到攻击。</p>
-      <img src="../../assets/img/endfield/endfield_02.png" alt="常见的作战中状态">
+      <img src="/My-page/assets/img/endfield/endfield_02.png" alt="常见的作战中状态">
       <p class="img-caption">图一：常见的作战中状态，四个干员都在提供攻击和效果</p>
       <p>同时，战技点也是全队共用的，所以虽然无法完全直接操控四个干员，《终末地》的小队系统仍较大程度实现了单人操控的团队作战，不仅需要考虑主控角色的操作，同时也要兼顾队内的其他角色，尤其在有生存压力的状况下，小队中的角色战场是很容易死亡退场的，会对整体循环造成极大影响。</p>
 
@@ -65,7 +65,7 @@
         <li><strong>辅助</strong>：擅长以各类控制效果削弱敌人，也能为其他干员提供增益和支援。</li>
       </ul>
       <p>干员职业会决定编队位置，以主流电属性队为例：</p>
-      <img src="../../assets/img/endfield/endfield_03.png" alt="经典电队">
+      <img src="/My-page/assets/img/endfield/endfield_03.png" alt="经典电队">
       <p class="img-caption">图二：经典电队</p>
       <p>四个角色中，梨诺作为辅助负责提供各类效果和治疗，决和佩丽卡作为术士提供【法术附着】，庄方宜作为突击则消耗【法术附着】进行循环主攻。</p>
       <p>角色职业区别形成了诸如此类的辅助位—附着位—主攻手的基本编队思路，在《终末地》的编队中是被广泛使用的。</p>
@@ -85,39 +85,39 @@
 
       <h3>2.1 基本战斗方式</h3>
       <p>角色通过普通攻击—重击循环进行基础攻击，普通攻击的最后一段为重击，可以回复技力并提升敌人失衡条。</p>
-      <img src="../../assets/img/endfield/endfield_04.png" alt="庄方宜的普通攻击介绍">
+      <img src="/My-page/assets/img/endfield/endfield_04.png" alt="庄方宜的普通攻击介绍">
       <p class="img-caption">图三：庄方宜的普通攻击介绍</p>
       <p>角色可以闪避敌人攻击，会打断当前的动作，但是在普攻中进行单次或连续两次闪避不会打断普攻循环。</p>
       <p class="video-label">片段 1：闪避不会打断普攻循环</p>
       <video controls preload="metadata" width="100%">
-        <source src="../../assets/video/clip1.mp4" type="video/mp4">
+        <source src="/My-page/assets/video/clip1.mp4" type="video/mp4">
         您的浏览器不支持 video 标签。
       </video>
       <p>角色的重击、战技、连携技和部分直接造成伤害的终结技命中敌人，都会积攒敌人的失衡条。敌人失衡条攒满后进入一段时间失衡状态，不进行攻击，防御力下降，角色可以在此时打出一次处决攻击。</p>
-      <img src="../../assets/img/endfield/endfield_05.png" alt="庄方宜重击命中失衡条增加的瞬间">
+      <img src="/My-page/assets/img/endfield/endfield_05.png" alt="庄方宜重击命中失衡条增加的瞬间">
       <p class="img-caption">图四：庄方宜重击命中失衡条增加的瞬间</p>
-      <img src="../../assets/img/endfield/endfield_06.png" alt="庄方宜的处决攻击描述">
+      <img src="/My-page/assets/img/endfield/endfield_06.png" alt="庄方宜的处决攻击描述">
       <p class="img-caption">图五：庄方宜的处决攻击描述</p>
 
       <h3>2.2 战技</h3>
       <p>角色有各自特色的战技，技力储存产生战技点，战技点全队共享，战技点和技力在战斗状态下的屏幕下方居中显示，可以通过自然恢复、重击、和部分战技连携技的效果进行回复。</p>
-      <img src="../../assets/img/endfield/endfield_07.jpeg" alt="庄方宜、佩丽卡、梨诺、决（意形态）的战技描述">
+      <img src="/My-page/assets/img/endfield/endfield_07.jpeg" alt="庄方宜、佩丽卡、梨诺、决（意形态）的战技描述">
       <p class="img-caption">图六：庄方宜、佩丽卡、梨诺、决（意形态）的战技描述</p>
 
       <h3>2.3 连携技</h3>
       <p>角色有各自特色的连携技，通过各自的条件触发，连携技的触发有冷却，该冷却仅随时间回复，连携技的状态条为：战斗界面左下角，角色头像下的白条。</p>
-      <img src="../../assets/img/endfield/endfield_08.jpeg" alt="庄方宜、佩丽卡、梨诺、决（意形态）的连携技描述">
+      <img src="/My-page/assets/img/endfield/endfield_08.jpeg" alt="庄方宜、佩丽卡、梨诺、决（意形态）的连携技描述">
       <p class="img-caption">图七：庄方宜、佩丽卡、梨诺、决（意形态）的连携技描述</p>
 
       <h3>2.4 终结技</h3>
       <p>角色有各自特色的终结技，通过战技、连携技效果进行回能，终结技状态：战斗画面右下角角色的战技键上方。</p>
-      <img src="../../assets/img/endfield/endfield_09.jpeg" alt="庄方宜、佩丽卡、梨诺、决（意形态）的终结技描述">
+      <img src="/My-page/assets/img/endfield/endfield_09.jpeg" alt="庄方宜、佩丽卡、梨诺、决（意形态）的终结技描述">
       <p class="img-caption">图八：庄方宜、佩丽卡、梨诺、决（意形态）的终结技描述</p>
 
       <h2>3. 实战循环拆解</h2>
       <p>本部分以电队（庄方宜、佩丽卡、梨诺、决（意形态））为例，通过整个实战循环拆解，意在表现在复杂的战斗系统下，通过战技、连携技控制战斗节奏，使得循环套路固定的情况。</p>
       <p>电队在冷启动（2 技力点，全队 0 大招能量）状态下开始战斗时，以庄方宜终结技充能完毕的节点前后，分为充能进入终结技爆发的充能循环，和庄方宜终结技开启后的爆发循环两个循环部分。</p>
-      <img src="../../assets/img/endfield/endfield_10.png" alt="电队的双循环示意图">
+      <img src="/My-page/assets/img/endfield/endfield_10.png" alt="电队的双循环示意图">
       <p class="img-caption">图九：电队的双循环示意图，来源：B 站 up 血狼破军视频——《【终末地测评#12】能拐能奶！梨诺数据与实战测评》</p>
       <p>由于充能循环机制更加复杂，展示充能循环后，爆发循环便不再赘述。</p>
 
@@ -126,25 +126,25 @@
       <p>主控庄方宜进入战斗，梨诺开启战技进入演唱姿态，佩丽卡释放战技施加【电磁附着】，释放决连携技再次施加【电磁附着】，庄方宜持续普攻触发重击。</p>
       <p class="video-label">片段 2</p>
       <video controls preload="metadata" width="100%">
-        <source src="../../assets/video/clip2.mp4" type="video/mp4">
+        <source src="/My-page/assets/video/clip2.mp4" type="video/mp4">
         您的浏览器不支持 video 标签。
       </video>
       <p>触发重击后，先释放庄方宜连携技将两层【电磁附着】转换为两层【导电】状态，然后释放庄方宜战技消耗导电，生成 2 柄青霆剑，回复终结技能量，同时释放佩丽卡和梨诺连携技，再次施加【电磁附着】。</p>
       <p class="video-label">片段 3</p>
       <video controls preload="metadata" width="100%">
-        <source src="../../assets/video/clip3.mp4" type="video/mp4">
+        <source src="/My-page/assets/video/clip3.mp4" type="video/mp4">
         您的浏览器不支持 video 标签。
       </video>
       <p>待梨诺的连携技回转好以及战技点回复后，再次释放庄方宜战技消耗【电磁附着】，释放梨诺连携技。</p>
       <p class="video-label">片段 4</p>
       <video controls preload="metadata" width="100%">
-        <source src="../../assets/video/clip4.mp4" type="video/mp4">
+        <source src="/My-page/assets/video/clip4.mp4" type="video/mp4">
         您的浏览器不支持 video 标签。
       </video>
       <p>待决连携技回转好以及战技点回复后，重复一次循环即可充满庄方宜终结技，开启庄方宜终结技进入爆发循环。</p>
       <p class="video-label">片段 5</p>
       <video controls preload="metadata" width="100%">
-        <source src="../../assets/video/clip5.mp4" type="video/mp4">
+        <source src="/My-page/assets/video/clip5.mp4" type="video/mp4">
         您的浏览器不支持 video 标签。
       </video>
 
@@ -175,7 +175,7 @@
         <li><strong>逐渐将属性进行融合释放元素系统活力</strong>：参考《原神》，元素系统的策略深度潜力是极大的，在玩家逐渐适应当前环境后进行逐步突破，可以释放当前锁定的元素系统的活力。</li>
       </ol>
 
-      <a href="../../writing.html" class="article-back">← 返回文字作品列表</a>
+      <a href="/My-page/writing.html" class="article-back">← 返回文字作品列表</a>
     </div>
   </article>
 </div>
@@ -186,6 +186,6 @@
   </div>
 </footer>
 
-<script src="../../js/main.js"></script>
+<script src="/My-page/js/main.js"></script>
 </body>
 </html>
